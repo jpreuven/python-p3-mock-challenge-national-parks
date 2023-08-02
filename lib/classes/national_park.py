@@ -2,12 +2,8 @@ from classes.trip import Trip
 
 
 class NationalPark:
-
-    all = []
-
     def __init__(self, name):
         self.name = name
-        NationalPark.all.append(self)
 
     def total_visits(self):
         return len(self.trips())
@@ -17,7 +13,6 @@ class NationalPark:
 
     @classmethod
     def most_visited(cls):
-        # return cls.all
         return max(set([trips.national_park for trips in Trip.all]), key=[trips.national_park for trips in Trip.all].count)
 
     @property
